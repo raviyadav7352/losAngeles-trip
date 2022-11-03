@@ -50,7 +50,7 @@ function setImage(images) {
     let smallImageHtml = "";
     let imageIndicator = "";
     images.forEach((img, index) => {
-        imagehtml += ` <img class="corosol-img" id="img${index + 1}" src="images/${img.image}.jpg" alt="mountain">`
+        imagehtml += `<div class="single-image" ><img class="corosol-img" id="img${index + 1}" src="images/${img.image}.jpg" alt="mountain"></div>`
         smallImageHtml += `<img class="small-img" id="smallimg${index + 1}" src="images/${img.image}.jpg" alt="">`
         imageIndicator += `<span  class="indicator" id="indiactor${index + 1}">.</span>`
     })
@@ -78,18 +78,18 @@ function changePage(page) {
         document.getElementById("showpage2").classList.remove("mountainbtn")
         mountainImg1.classList.add("show")
         mountainImg2.classList.remove("show")
-        tripliit(datePlace)
+        triplist(datePlace)
 
     } else if (page == "showpage2") {
         document.getElementById("showpage2").classList.add("mountainbtn")
         document.getElementById("showpage1").classList.remove("mountainbtn")
         mountainImg2.classList.add("show")
         mountainImg1.classList.remove("show")
-        tripliit(datePlace2)
+        triplist(datePlace2)
     }
 }
 // footer trip list show function
-function tripliit(datas) {
+function triplist(datas) {
     let listdata = "<h3>SCHEDULE</h3>";
     datas.forEach(data => {
         listdata += `<div class="date">${data.date}
@@ -98,7 +98,7 @@ function tripliit(datas) {
     })
     tripSchedule.innerHTML = listdata
 }
-tripliit(datePlace)
+triplist(datePlace)
 
 // section image text overlaped function
 function TextOverImage(i) {
@@ -118,22 +118,22 @@ document.addEventListener("click", function (e) {
     let elem = e.target;
     let elemid = elem.getAttribute("id")
     if (elemid == "smallimg1" || elemid == "indiactor1") {
-        imagesbox.style.transform = "translateY(0px)"
+        imagesbox.style.transform = "translateX(0px)"
         indicatorShow(indicator1, smallimage1 )
         TextOverImage(0)
 
     } else if (elemid == "smallimg2" || elemid == "indiactor2") {
-        imagesbox.style.transform = "translateY(-100%)"
+        imagesbox.style.transform = "translateX(-100%)"
         indicatorShow(indicator2, smallimage2)
         TextOverImage(1)
 
     } else if (elemid == "smallimg3" || elemid == "indiactor3") {
-        imagesbox.style.transform = "translateY(-200%)"
+        imagesbox.style.transform = "translateX(-200%)"
         indicatorShow(indicator3, smallimage3)
         TextOverImage(2)
 
     } else if (elemid == "smallimg4" || elemid == "indiactor4") {
-        imagesbox.style.transform = "translateY(-300%)"
+        imagesbox.style.transform = "translateX(-300%)"
         indicatorShow(indicator4, smallimage4)
         TextOverImage(3)
     }
